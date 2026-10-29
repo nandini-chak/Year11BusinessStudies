@@ -26,6 +26,7 @@ Chapter order follows Cambridge Business Studies Stage 6 Year 11, Fifth Edition,
    - original HSC-style questions: multiple choice, a short answer, and a case study, each with a show/hide answer
 5. Write original wording. Do not paste the textbook.
 6. On the course home (`index.html`), change that topic’s button from “Preview structure” to “Open Topic …”.
+7. Keep `<script src="../../assets/gate.js"></script>` in the page `<head>` so the static login still covers the new topic.
 
 ## Slide controls
 

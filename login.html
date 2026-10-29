@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year 11 Business Studies</title>
+  <link rel="stylesheet" href="assets/deck.css">
+</head>
+<body>
+  <main class="site login-site">
+    <p class="eyebrow">Preliminary course · Stage 6</p>
+    <h1>Year 11 Business Studies</h1>
+    <form class="login-card" id="login" autocomplete="on">
+      <label>User
+        <input name="user" autocomplete="username" required>
+      </label>
+      <label>Password
+        <input name="pass" type="password" autocomplete="current-password" required>
+      </label>
+      <button class="btn primary" type="submit">Enter</button>
+      <p class="login-error" id="login-error" hidden>That user or password is not right.</p>
+    </form>
+  </main>
+  <script>
+    (function () {
+      var KEY = "y11bs";
+      var TOKEN = "nc-23082006";
+      var form = document.getElementById("login");
+      var error = document.getElementById("login-error");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var data = new FormData(form);
+        var user = String(data.get("user") || "").trim();
+        var pass = String(data.get("pass") || "");
+        if (user === "nc" && pass === "23082006") {
+          localStorage.setItem(KEY, TOKEN);
+          var next = sessionStorage.getItem("y11bs-next");
+          sessionStorage.removeItem("y11bs-next");
+          if (next) {
+            try {
+              var url = new URL(next);
+              if (url.origin === location.origin && !/\/login\.html$/.test(url.pathname)) {
+                location.replace(url.href);
+                return;
+              }
+            } catch (e) {}
+          }
+          location.replace("index.html");
+          return;
+        }
+        error.hidden = false;
+        form.querySelector('[name="pass"]').value = "";
+        form.querySelector('[name="pass"]').focus();
+      });
+    })();
+  </script>
+</body>
+</html>

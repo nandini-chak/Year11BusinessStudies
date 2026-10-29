@@ -433,6 +433,33 @@ body[data-topic] .site h1 { color: var(--topic); }
 .topic[data-topic="2"] .btn.primary { background: #00858f; color: #fff; }
 .topic[data-topic="3"] .btn.primary { background: #ed4f3e; color: #fff; }
 .btn.primary, .site .btn.primary { background: var(--topic); color: #fff; }
+.login-site { max-width: 520px; }
+.login-card {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(80, 30, 55, 0.06);
+}
+.login-card label {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+  color: #3d4550;
+}
+.login-card input {
+  font: inherit;
+  font-size: 22px;
+  padding: 10px 12px;
+  border: 1px solid rgba(28, 28, 28, 0.14);
+  border-radius: 12px;
+  color: var(--ink);
+}
+.login-card .btn { justify-self: start; font-size: 18px; }
+.login-error { margin: 0; color: #9a256d; font-weight: 700; }
+
 footer.colophon, .colophon {
   color: var(--muted);
   font-size: 15px;
