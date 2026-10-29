@@ -18,6 +18,10 @@
       slide.hidden = study ? false : i !== index;
     });
     if (counter) counter.textContent = (index + 1) + " / " + slides.length;
+    document.documentElement.style.setProperty(
+      "--deck-progress",
+      ((index + 1) / slides.length * 100) + "%"
+    );
     const nextHash = "#s" + (index + 1);
     if (location.hash !== nextHash) history.replaceState(null, "", nextHash);
     if (study) slides[index].scrollIntoView({ block: "start", behavior: "smooth" });
